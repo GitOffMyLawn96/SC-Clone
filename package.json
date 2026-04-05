@@ -1,0 +1,51 @@
+{
+  "name": "sc-clone",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Premium Starcopter marketing site rebuild with interactive 3D HIGHDRA storytelling.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "sanity": "sanity dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GitOffMyLawn96/SC-Clone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GitOffMyLawn96/SC-Clone/issues"
+  },
+  "homepage": "https://github.com/GitOffMyLawn96/SC-Clone#readme",
+  "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
+    "@sanity/image-url": "^2.1.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.38.0",
+    "gsap": "^3.14.2",
+    "lucide-react": "^1.7.0",
+    "next": "^16.2.2",
+    "next-sanity": "^12.2.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "sanity": "^5.19.0",
+    "tailwind-merge": "^3.5.0",
+    "three": "^0.183.2",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.2",
+    "@types/node": "^25.5.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.2",
+    "tailwindcss": "^4.2.2",
+    "typescript": "^5.9.3"
+  }
+}

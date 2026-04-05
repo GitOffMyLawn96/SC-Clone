@@ -1,0 +1,61 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" fill="#05070B"/>
+  <circle cx="1210" cy="170" r="210" fill="url(#paint0_radial)" fill-opacity="0.8"/>
+  <circle cx="365" cy="260" r="280" fill="url(#paint1_radial)" fill-opacity="0.75"/>
+  <g opacity="0.4">
+    <path d="M0 180H1600" stroke="#1C2430"/>
+    <path d="M0 360H1600" stroke="#1C2430"/>
+    <path d="M0 540H1600" stroke="#1C2430"/>
+    <path d="M0 720H1600" stroke="#1C2430"/>
+    <path d="M0 900H1600" stroke="#1C2430"/>
+    <path d="M200 0V1200" stroke="#1C2430"/>
+    <path d="M400 0V1200" stroke="#1C2430"/>
+    <path d="M600 0V1200" stroke="#1C2430"/>
+    <path d="M800 0V1200" stroke="#1C2430"/>
+    <path d="M1000 0V1200" stroke="#1C2430"/>
+    <path d="M1200 0V1200" stroke="#1C2430"/>
+    <path d="M1400 0V1200" stroke="#1C2430"/>
+  </g>
+  <g transform="translate(800 590)">
+    <rect x="-170" y="-55" width="340" height="110" rx="26" fill="#0E1522" stroke="#43536C" stroke-width="4"/>
+    <rect x="-110" y="-100" width="220" height="56" rx="18" fill="#101826" stroke="#5B8CFF" stroke-opacity="0.45" stroke-width="4"/>
+    <rect x="-72" y="55" width="144" height="34" rx="12" fill="#0C1320" stroke="#F2C84C" stroke-opacity="0.5" stroke-width="4"/>
+    <g stroke="#253145" stroke-width="16" stroke-linecap="round">
+      <path d="M-130 -10L-310 -170"/>
+      <path d="M130 -10L310 -170"/>
+      <path d="M-130 10L-310 170"/>
+      <path d="M130 10L310 170"/>
+    </g>
+    <g fill="#101826" stroke="#6D7B92" stroke-width="4">
+      <circle cx="-345" cy="-200" r="54"/>
+      <circle cx="345" cy="-200" r="54"/>
+      <circle cx="-345" cy="200" r="54"/>
+      <circle cx="345" cy="200" r="54"/>
+    </g>
+    <g stroke="#A6B2C4" stroke-width="8" stroke-linecap="round">
+      <path d="M-405 -200H-285"/>
+      <path d="M-345 -260V-140"/>
+      <path d="M285 -200H405"/>
+      <path d="M345 -260V-140"/>
+      <path d="M-405 200H-285"/>
+      <path d="M-345 140V260"/>
+      <path d="M285 200H405"/>
+      <path d="M345 140V260"/>
+    </g>
+    <path d="M-40 93L-86 228" stroke="#697485" stroke-width="10" stroke-linecap="round"/>
+    <path d="M40 93L86 228" stroke="#697485" stroke-width="10" stroke-linecap="round"/>
+    <path d="M-118 228H118" stroke="#697485" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <text x="120" y="1040" fill="#F5F7FB" font-family="Arial, sans-serif" font-size="74" letter-spacing="16">STARCOPTER</text>
+  <text x="120" y="1100" fill="#8D98AA" font-family="Arial, sans-serif" font-size="28" letter-spacing="10">PREMIUM HIGHDRA VISUAL FALLBACK</text>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1210 170) rotate(90) scale(210)">
+      <stop stop-color="#F2C84C"/>
+      <stop offset="1" stop-color="#F2C84C" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(365 260) rotate(90) scale(280)">
+      <stop stop-color="#5B8CFF"/>
+      <stop offset="1" stop-color="#5B8CFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

@@ -1,0 +1,18 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#05070B"/>
+  <circle cx="918" cy="120" r="170" fill="#F2C84C" fill-opacity="0.16"/>
+  <circle cx="330" cy="130" r="200" fill="#5B8CFF" fill-opacity="0.18"/>
+  <rect x="662" y="208" width="306" height="98" rx="24" fill="#101826" stroke="#44536A" stroke-width="4"/>
+  <rect x="718" y="162" width="194" height="48" rx="14" fill="#0D1524" stroke="#5B8CFF" stroke-opacity="0.5" stroke-width="3"/>
+  <path d="M701 227L574 131" stroke="#253145" stroke-width="12" stroke-linecap="round"/>
+  <path d="M929 227L1056 131" stroke="#253145" stroke-width="12" stroke-linecap="round"/>
+  <path d="M701 285L574 381" stroke="#253145" stroke-width="12" stroke-linecap="round"/>
+  <path d="M929 285L1056 381" stroke="#253145" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="548" cy="111" r="36" fill="#111A2A" stroke="#70809A" stroke-width="4"/>
+  <circle cx="1082" cy="111" r="36" fill="#111A2A" stroke="#70809A" stroke-width="4"/>
+  <circle cx="548" cy="401" r="36" fill="#111A2A" stroke="#70809A" stroke-width="4"/>
+  <circle cx="1082" cy="401" r="36" fill="#111A2A" stroke="#70809A" stroke-width="4"/>
+  <text x="76" y="228" fill="#5B8CFF" font-family="Arial, sans-serif" font-size="18" letter-spacing="8">PREMIUM DRONE SYSTEMS</text>
+  <text x="76" y="334" fill="#F5F7FB" font-family="Arial, sans-serif" font-size="78" font-weight="700" letter-spacing="8">STARCOPTER</text>
+  <text x="76" y="406" fill="#C9D0DD" font-family="Arial, sans-serif" font-size="28" letter-spacing="2">High-performance aerial capability with premium product storytelling.</text>
+</svg>

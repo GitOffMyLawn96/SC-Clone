@@ -60,6 +60,32 @@ select {
   background-size: 64px 64px;
 }
 
+.shimmer-sweep {
+  background: linear-gradient(
+    110deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 75%
+  );
+  background-size: 250% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.counter-done {
+  animation: counter-pulse 0.6s ease-out;
+}
+
+@keyframes counter-pulse {
+  0% { text-shadow: 0 0 0 transparent; }
+  50% { text-shadow: 0 0 20px rgba(252, 185, 0, 0.4); }
+  100% { text-shadow: 0 0 0 transparent; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

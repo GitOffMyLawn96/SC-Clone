@@ -1,5 +1,8 @@
+"use client";
+
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/system/reveal";
+import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { type Metric } from "@/lib/site-data";
 
 type MetricStripProps = {
@@ -13,9 +16,11 @@ export function MetricStrip({ metrics }: MetricStripProps) {
         {metrics.map((metric, index) => (
           <Reveal key={metric.label} delay={index * 0.06}>
             <div className="rounded-xl border border-white/8 bg-white/[0.03] p-6">
-              <p className="text-4xl font-extralight uppercase tracking-[0.08em] text-white">
-                {metric.value}
-              </p>
+              <AnimatedCounter
+                value={metric.value}
+                delay={index * 0.15}
+                className="text-4xl font-extralight uppercase tracking-[0.08em] text-white"
+              />
               <p className="mt-3 text-sm font-medium uppercase tracking-[0.2em] text-white/80">
                 {metric.label}
               </p>

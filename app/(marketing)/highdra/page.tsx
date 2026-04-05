@@ -1,27 +1,34 @@
-import { CTABand } from "@/components/marketing/cta-band";
+import { HighdraHero } from "@/components/marketing/highdra-hero";
+import { HighdraExplorer } from "@/components/marketing/highdra-explorer";
+import { SpecsTable } from "@/components/marketing/specs-table";
+import { BatteryRace } from "@/components/marketing/battery-race";
+import { PayloadCarousel } from "@/components/marketing/payload-carousel";
 import { FAQList } from "@/components/marketing/faq-list";
-import { FeatureGrid } from "@/components/marketing/feature-grid";
-import { MetricStrip } from "@/components/marketing/metric-strip";
-import { PageHero } from "@/components/marketing/page-hero";
-import { productFeatures, heroMetrics, faqs } from "@/lib/site-data";
+import { CTABand } from "@/components/marketing/cta-band";
+import { faqs } from "@/lib/site-data";
 
 export default function HighdraPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Product"
-        title="HIGHDRA"
-        description="A high-performance drone system for teams that need real payload capability, modular deployment, and credible endurance — designed around operational value rather than brochure promises."
-        stat="35 min @ 7.5 kg"
-      />
-      <MetricStrip metrics={heroMetrics} />
-      <FeatureGrid
-        eyebrow="Core Advantages"
-        title="Engineered as a system, not a spec sheet"
-        description="What actually changes outcomes in the field: deployment speed, payload flexibility, battery life, serviceability, and platform maturity."
-        features={productFeatures}
-      />
+      {/* Full-viewport 3D product hero */}
+      <HighdraHero />
+
+      {/* Split-screen scroll-driven 3D explorer with exploded view */}
+      <HighdraExplorer />
+
+      {/* Animated specs comparison */}
+      <SpecsTable />
+
+      {/* Battery endurance race visualization */}
+      <BatteryRace />
+
+      {/* Interactive payload carousel */}
+      <PayloadCarousel />
+
+      {/* Enhanced FAQ accordion */}
       <FAQList items={faqs} />
+
+      {/* Premium CTA */}
       <CTABand
         eyebrow="Get Started"
         title="See the HIGHDRA in action."

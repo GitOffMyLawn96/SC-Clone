@@ -2,7 +2,9 @@
 
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
+import { useMouseParallax } from "@/lib/hooks/use-mouse-parallax";
+import { useAdaptiveQuality } from "@/lib/hooks/use-adaptive-quality";
 
 const Scene = dynamic(
   () => import("@/components/three/drone-scene").then((mod) => mod.DroneScene),
@@ -14,7 +16,7 @@ const Scene = dynamic(
 
 function HeroPoster({ label }: { label?: string }) {
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-xl border border-white/8 bg-[radial-gradient(circle_at_top,rgba(0,124,176,0.16),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(252,185,0,0.1),transparent_28%),rgba(255,255,255,0.03)]">
+    <div className="relative h-full w-full overflow-hidden bg-[radial-gradient(circle_at_top,rgba(0,124,176,0.16),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(252,185,0,0.1),transparent_28%),rgba(255,255,255,0.03)]">
       <Image
         src="/higdhra-poster.svg"
         alt="HIGHDRA drone system"
@@ -31,31 +33,25 @@ function HeroPoster({ label }: { label?: string }) {
   );
 }
 
-export function DroneHero() {
-  const [canRender3D, setCanRender3D] = useState(false);
-  const [reducedEffects, setReducedEffects] = useState(false);
+type DroneHeroProps = {
+  className?: string;
+  exploded?: boolean;
+  showLabels?: boolean;
+  cameraPosition?: [number, number, number];
+  cameraTarget?: [number, number, number];
+  enableOrbit?: boolean;
+};
 
-  useEffect(() => {
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const lowMemory =
-      "deviceMemory" in navigator &&
-      typeof (navigator as Navigator & { deviceMemory?: number }).deviceMemory === "number" &&
-      ((navigator as Navigator & { deviceMemory?: number }).deviceMemory ?? 0) <= 4;
-    const limitedCpu = navigator.hardwareConcurrency > 0 && navigator.hardwareConcurrency <= 4;
-
-    const frame = window.requestAnimationFrame(() => {
-      if (reducedMotion) {
-        setReducedEffects(true);
-        setCanRender3D(false);
-        return;
-      }
-
-      setReducedEffects(lowMemory || limitedCpu);
-      setCanRender3D(true);
-    });
-
-    return () => window.cancelAnimationFrame(frame);
-  }, []);
+export function DroneHero({
+  className,
+  exploded,
+  showLabels,
+  cameraPosition,
+  cameraTarget,
+  enableOrbit,
+}: DroneHeroProps) {
+  const mouse = useMouseParallax();
+  const quality = useAdaptiveQuality();
 
   const calloutItems = useMemo(
     () => [
@@ -66,13 +62,35 @@ export function DroneHero() {
     [],
   );
 
+  if (quality.tier === "poster") {
+    return (
+      <div className={className}>
+        <div className="relative h-[420px] overflow-hidden rounded-xl border border-white/8 md:h-[620px]">
+          <HeroPoster />
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="grid gap-4">
+    <div className={className}>
       <div className="relative h-[420px] overflow-hidden rounded-xl border border-white/8 bg-[rgba(255,255,255,0.02)] md:h-[620px]">
-        {canRender3D ? <Scene reducedEffects={reducedEffects} /> : <HeroPoster />}
+        <Scene
+          reducedEffects={quality.tier === "low"}
+          enablePostFX={quality.postProcessing}
+          enableParticles={quality.particleCount > 0}
+          particleCount={quality.particleCount}
+          mouseX={mouse.x}
+          mouseY={mouse.y}
+          exploded={exploded}
+          showLabels={showLabels}
+          cameraPosition={cameraPosition}
+          cameraTarget={cameraTarget}
+          enableOrbit={enableOrbit}
+        />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(180deg,transparent,rgba(0,15,43,0.9))]" />
       </div>
-      <div className="grid gap-3 md:grid-cols-3">
+      <div className="mt-4 grid gap-3 md:grid-cols-3">
         {calloutItems.map((item) => (
           <div
             key={item}

@@ -10,31 +10,31 @@ export default function TechnologyPage() {
       <PageHero
         eyebrow="Platform"
         title="Technology"
-        description="This page translates the product into a premium technology narrative covering structure, power, avionics, software, and long-term extensibility."
+        description="Explore the engineering behind the HIGHDRA: structure, power systems, avionics, software, and long-term extensibility."
         stat="Modular By Design"
       />
 
       <FeatureGrid
         eyebrow="System Architecture"
-        title="A platform story buyers can trust"
-        description="Instead of isolated feature claims, the technology page explains how every layer of the platform supports reliability, flexibility, and future relevance."
+        title="Every layer supports reliability and flexibility"
+        description="Instead of isolated feature claims, every component of the platform works together to deliver consistent field performance."
         features={technologyPillars}
       />
 
       <section className="py-20 md:py-28">
-        <Container className="grid gap-6 lg:grid-cols-3">
+        <Container className="grid gap-5 lg:grid-cols-3">
           {["Airframe", "Power Packs", "Software Layer"].map((item) => (
             <article
               key={item}
-              className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8"
+              className="rounded-xl border border-white/8 bg-white/[0.03] p-8"
             >
-              <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-blue)]">
+              <p className="text-xs font-medium uppercase tracking-[0.28em] text-[var(--color-blue-light)]">
                 {item}
               </p>
-              <p className="mt-5 text-base leading-7 text-white/68">
-                This slot is designed for future deeper content modules such as
-                exploded views, technical diagrams, architecture notes, or
-                certification references connected through the CMS.
+              <p className="mt-5 text-[15px] font-extralight leading-7 text-white/55">
+                Deeper technical content, exploded views, architecture diagrams,
+                and certification references will expand this section as
+                the platform evolves.
               </p>
             </article>
           ))}
@@ -42,9 +42,9 @@ export default function TechnologyPage() {
       </section>
 
       <CTABand
-        eyebrow="Technical Sales"
-        title="Use the technology page to answer deeper buyer questions."
-        description="The structure supports future CAD visuals, certification modules, and richer engineering content while keeping the brand expression consistent."
+        eyebrow="Technical Questions"
+        title="Want to go deeper on the technology?"
+        description="Our engineering team can walk you through platform architecture, payload integration, and certification details."
       />
     </>
   );

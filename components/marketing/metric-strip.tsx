@@ -8,21 +8,18 @@ type MetricStripProps = {
 
 export function MetricStrip({ metrics }: MetricStripProps) {
   return (
-    <section className="border-y border-white/8 bg-white/[0.02] py-8">
+    <section className="border-y border-white/8 bg-white/[0.02] py-10">
       <Container className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         {metrics.map((metric, index) => (
           <Reveal key={metric.label} delay={index * 0.06}>
-            <div
-            key={metric.label}
-            className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-6"
-            >
-              <p className="font-display text-4xl uppercase tracking-[0.08em] text-white">
+            <div className="rounded-xl border border-white/8 bg-white/[0.03] p-6">
+              <p className="text-4xl font-extralight uppercase tracking-[0.08em] text-white">
                 {metric.value}
               </p>
-              <p className="mt-3 text-sm uppercase tracking-[0.2em] text-white/85">
+              <p className="mt-3 text-sm font-medium uppercase tracking-[0.2em] text-white/80">
                 {metric.label}
               </p>
-              <p className="mt-3 text-sm leading-6 text-white/58">{metric.detail}</p>
+              <p className="mt-3 text-sm font-extralight leading-6 text-white/50">{metric.detail}</p>
             </div>
           </Reveal>
         ))}

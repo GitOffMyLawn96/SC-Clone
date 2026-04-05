@@ -23,14 +23,14 @@ export function SectionHeading({
         className,
       )}
     >
-      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.32em] text-[var(--color-blue)]">
+      <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-[var(--color-blue-light)]">
         {eyebrow}
       </p>
-      <h2 className="font-display text-4xl uppercase tracking-[0.06em] text-white md:text-5xl">
+      <h2 className="text-4xl font-light uppercase tracking-[0.06em] text-white md:text-5xl">
         {title}
       </h2>
       {description ? (
-        <p className="mt-5 text-base leading-7 text-white/70 md:text-lg">{description}</p>
+        <p className="mt-5 text-base font-extralight leading-7 text-white/60 md:text-lg">{description}</p>
       ) : null}
     </div>
   );

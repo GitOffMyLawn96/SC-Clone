@@ -1,18 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --color-ink: #071019;
-  --color-background: #05070b;
+  --color-ink: #000f2b;
+  --color-background: #000f2b;
   --color-panel: rgba(255, 255, 255, 0.04);
   --color-border: rgba(255, 255, 255, 0.1);
   --color-white: #f5f7fb;
-  --color-blue: #5b8cff;
-  --color-gold: #f2c84c;
+  --color-blue: #007cb0;
+  --color-blue-light: #0693e3;
+  --color-gold: #fcb900;
   --color-muted: rgba(245, 247, 251, 0.68);
 }
 
 @theme inline {
-  --font-sans: var(--font-body);
+  --font-sans: var(--font-display);
   --font-display: var(--font-display);
 }
 
@@ -28,10 +29,11 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at top, rgba(91, 140, 255, 0.12), transparent 24%),
-    linear-gradient(180deg, #05070b 0%, #070b11 45%, #05070b 100%);
+    radial-gradient(circle at top, rgba(0, 124, 176, 0.08), transparent 24%),
+    linear-gradient(180deg, #000f2b 0%, #001a3a 45%, #000f2b 100%);
   color: var(--color-white);
-  font-family: var(--font-body), sans-serif;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 300;
 }
 
 a {
@@ -47,14 +49,14 @@ select {
 }
 
 ::selection {
-  background: rgba(91, 140, 255, 0.38);
+  background: rgba(0, 124, 176, 0.38);
   color: white;
 }
 
-.premium-grid {
+.tech-grid {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 

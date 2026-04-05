@@ -44,7 +44,7 @@ export const siteConfig = {
   productName: "HIGHDRA",
   url: "https://www.starcopter.com",
   description:
-    "Premium B2B drone platform for surveying, inspection, transport, and advanced sensing operations.",
+    "High-performance drone systems for surveying, inspection, transport, and advanced sensing operations.",
   contact: {
     phone: "+49 531 428 78 50",
     email: "info@starcopter.com",
@@ -103,7 +103,7 @@ export const homepageHighlights: FeatureCard[] = [
     eyebrow: "Commercially Smarter",
     title: "Pay-per-use access removes the ownership barrier.",
     description:
-      "Customers can access premium drone capability without tying up capital in underutilized hardware, maintenance cycles, or replacement risk.",
+      "Access high-end drone capability without tying up capital in underutilized hardware, maintenance cycles, or replacement risk.",
   },
 ];
 
@@ -257,7 +257,7 @@ export const useCases: UseCase[] = [
 export const companyTimeline = [
   {
     year: "Now",
-    title: "Premium field-ready drone platform",
+    title: "Field-ready drone platform",
     detail:
       "Starcopter focuses on a durable, modular aircraft and a commercial model that makes high-end operations more accessible.",
   },
@@ -301,7 +301,7 @@ export const jobPostings: JobPosting[] = [
 
 export const newsPosts: NewsPost[] = [
   {
-    slug: "introducing-the-premium-platform-vision",
+    slug: "introducing-the-platform-vision",
     title: "Building A More Operational Drone Platform",
     date: "April 2026",
     excerpt:
@@ -342,7 +342,7 @@ export const faqs = [
   {
     question: "How should the 3D experience behave on lower-powered devices?",
     answer:
-      "The website is built with progressive enhancement so users still get premium visuals and clear CTAs even if the interactive scene falls back to a lighter render or poster.",
+      "The website is built with progressive enhancement so users get high-quality visuals and clear CTAs even if the interactive scene falls back to a lighter render or poster.",
   },
 ];
 

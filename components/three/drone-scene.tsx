@@ -79,7 +79,7 @@ function DroneModel({ reducedEffects = false }: DroneModelProps) {
             color="#0f1522"
             metalness={0.92}
             roughness={0.18}
-            emissive={reducedEffects ? "#000000" : "#19386a"}
+            emissive={reducedEffects ? "#000000" : "#003d58"}
             emissiveIntensity={reducedEffects ? 0 : 0.28}
           />
         </mesh>
@@ -131,8 +131,8 @@ export function DroneScene({ reducedEffects = false }: { reducedEffects?: boolea
       camera={{ position: [7, 4, 7], fov: 34 }}
       className="h-full w-full"
     >
-      <color attach="background" args={["#05070b"]} />
-      <fog attach="fog" args={["#05070b", 10, 24]} />
+      <color attach="background" args={["#000f2b"]} />
+      <fog attach="fog" args={["#000f2b", 10, 24]} />
       <ambientLight intensity={reducedEffects ? 1.4 : 0.85} />
       <directionalLight
         castShadow={!reducedEffects}
@@ -145,14 +145,14 @@ export function DroneScene({ reducedEffects = false }: { reducedEffects?: boolea
         angle={0.32}
         penumbra={1}
         intensity={reducedEffects ? 0.8 : 1.8}
-        color="#5b8cff"
+        color="#007cb0"
       />
       <spotLight
         position={[0, 5, -8]}
         angle={0.42}
         penumbra={1}
         intensity={reducedEffects ? 0.5 : 1.2}
-        color="#f2c84c"
+        color="#fcb900"
       />
       <DroneModel reducedEffects={reducedEffects} />
       <ContactShadows

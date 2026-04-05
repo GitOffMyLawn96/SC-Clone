@@ -10,34 +10,34 @@ export default function UseCasesPage() {
       <PageHero
         eyebrow="Solutions"
         title="Use Cases"
-        description="A scalable page system for specific industries and workflows gives Starcopter more than one entry point into premium B2B demand generation."
+        description="Explore how the HIGHDRA supports high-value operations across surveying, inspection, and environmental sensing."
         stat="3 Priority Verticals"
       />
 
       <section className="py-20 md:py-28">
-        <Container className="grid gap-6 lg:grid-cols-3">
+        <Container className="grid gap-5 lg:grid-cols-3">
           {useCases.map((useCase) => (
             <article
               key={useCase.slug}
-              className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8"
+              className="rounded-xl border border-white/8 bg-white/[0.03] p-8"
             >
-              <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-gold)]">
+              <p className="text-xs font-medium uppercase tracking-[0.28em] text-[var(--color-gold)]">
                 {useCase.kicker}
               </p>
-              <h2 className="mt-4 font-display text-3xl uppercase tracking-[0.05em] text-white">
+              <h2 className="mt-4 text-2xl font-light uppercase tracking-[0.04em] text-white md:text-3xl">
                 {useCase.title}
               </h2>
-              <p className="mt-5 text-base leading-7 text-white/68">{useCase.summary}</p>
-              <ul className="mt-6 space-y-3 text-sm text-white/62">
+              <p className="mt-5 text-[15px] font-extralight leading-7 text-white/55">{useCase.summary}</p>
+              <ul className="mt-6 space-y-3 text-sm font-extralight text-white/50">
                 {useCase.outcomes.map((outcome) => (
                   <li key={outcome}>• {outcome}</li>
                 ))}
               </ul>
               <Link
                 href={`/use-cases/${useCase.slug}`}
-                className="mt-8 inline-flex text-sm uppercase tracking-[0.18em] text-[var(--color-blue)]"
+                className="mt-8 inline-flex text-[13px] font-medium uppercase tracking-[0.2em] text-[var(--color-blue-light)] transition hover:text-white"
               >
-                Explore Page
+                Learn More →
               </Link>
             </article>
           ))}
@@ -45,9 +45,9 @@ export default function UseCasesPage() {
       </section>
 
       <CTABand
-        eyebrow="Future Scale"
-        title="Built for campaigns, vertical pages, and sector-specific sales motion."
-        description="The structure supports adding new industries, region-specific landing pages, and deeper technical storytelling without changing the brand foundation."
+        eyebrow="Your Industry"
+        title="Don't see your use case? Let's talk."
+        description="The HIGHDRA supports a growing range of specialized operations. Contact us to discuss your specific requirements."
       />
     </>
   );

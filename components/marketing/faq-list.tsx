@@ -16,19 +16,19 @@ export function FAQList({ items }: FAQListProps) {
       <Container>
         <SectionHeading
           eyebrow="FAQ"
-          title="Answers For Procurement, Operations, And Rollout"
-          description="The site is designed to remove friction for buyers who need clarity on performance, integration, and deployment confidence."
+          title="Frequently Asked Questions"
+          description="Common questions about performance, integration, and deployment."
         />
-        <div className="mt-12 space-y-4">
+        <div className="mt-12 space-y-3">
           {items.map((item) => (
             <details
               key={item.question}
-              className="rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-6 open:border-[var(--color-blue)]"
+              className="rounded-xl border border-white/8 bg-white/[0.03] p-6 open:border-[var(--color-blue)]/40"
             >
-              <summary className="cursor-pointer list-none font-display text-2xl uppercase tracking-[0.05em] text-white">
+              <summary className="cursor-pointer list-none text-xl font-light uppercase tracking-[0.04em] text-white">
                 {item.question}
               </summary>
-              <p className="mt-4 max-w-4xl text-base leading-7 text-white/68">{item.answer}</p>
+              <p className="mt-4 max-w-4xl text-[15px] font-extralight leading-7 text-white/55">{item.answer}</p>
             </details>
           ))}
         </div>

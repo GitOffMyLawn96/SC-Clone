@@ -11,21 +11,21 @@ export default function HighdraPage() {
       <PageHero
         eyebrow="Product"
         title="HIGHDRA"
-        description="A premium drone platform for teams that need real payload capability, modular deployment, credible endurance, and a system designed around operational value rather than brochure promises."
+        description="A high-performance drone system for teams that need real payload capability, modular deployment, and credible endurance — designed around operational value rather than brochure promises."
         stat="35 min @ 7.5 kg"
       />
       <MetricStrip metrics={heroMetrics} />
       <FeatureGrid
         eyebrow="Core Advantages"
         title="Engineered as a system, not a spec sheet"
-        description="The product story focuses on what actually changes outcomes in the field: deployment speed, payload flexibility, battery life, serviceability, and platform maturity."
+        description="What actually changes outcomes in the field: deployment speed, payload flexibility, battery life, serviceability, and platform maturity."
         features={productFeatures}
       />
       <FAQList items={faqs} />
       <CTABand
-        eyebrow="Product Conversion"
-        title="Use the product page like a premium sales asset."
-        description="The page is designed to support both first-touch discovery and later-stage buyer validation with stronger proof points, better hierarchy, and clearer conversion paths."
+        eyebrow="Get Started"
+        title="See the HIGHDRA in action."
+        description="Request a demo flight, talk specs with our engineering team, or get a quote for your next project."
       />
     </>
   );

@@ -30,35 +30,35 @@ export default async function UseCaseDetailPage({
       />
 
       <section className="py-20 md:py-28">
-        <Container className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-blue)]">
+        <Container className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="rounded-xl border border-white/8 bg-white/[0.03] p-8">
+            <p className="text-xs font-medium uppercase tracking-[0.28em] text-[var(--color-blue-light)]">
               Outcomes
             </p>
-            <ul className="mt-6 space-y-4 text-base leading-7 text-white/68">
+            <ul className="mt-6 space-y-4 text-[15px] font-extralight leading-7 text-white/55">
               {useCase.outcomes.map((outcome) => (
                 <li key={outcome}>• {outcome}</li>
               ))}
             </ul>
           </div>
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-gold)]">
+          <div className="rounded-xl border border-white/8 bg-white/[0.03] p-8">
+            <p className="text-xs font-medium uppercase tracking-[0.28em] text-[var(--color-gold)]">
               Platform Relevance
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               {useCase.technologies.map((technology) => (
                 <span
                   key={technology}
-                  className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white/70"
+                  className="rounded-lg border border-white/8 bg-white/[0.04] px-4 py-2 text-sm font-extralight text-white/60"
                 >
                   {technology}
                 </span>
               ))}
             </div>
-            <p className="mt-6 text-base leading-7 text-white/68">
-              These pages are intentionally structured as scalable demand assets.
-              They can later absorb case studies, vertical-specific forms, gated
-              technical downloads, and CMS-driven campaigns.
+            <p className="mt-6 text-[15px] font-extralight leading-7 text-white/55">
+              Built to support case studies, vertical-specific forms, gated
+              technical downloads, and targeted campaign content as the
+              product evolves.
             </p>
           </div>
         </Container>
@@ -66,8 +66,8 @@ export default async function UseCaseDetailPage({
 
       <CTABand
         eyebrow="Engagement"
-        title={`Move ${useCase.title.toLowerCase()} buyers toward a live conversation.`}
-        description="Each use-case page keeps the design premium while letting sales add more vertical detail over time through a reusable content system."
+        title={`Discuss your ${useCase.title.toLowerCase()} requirements with our team.`}
+        description="Get a quote, schedule a demo, or explore how the HIGHDRA fits your specific operational needs."
       />
     </>
   );

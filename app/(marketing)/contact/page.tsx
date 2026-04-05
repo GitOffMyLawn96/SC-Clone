@@ -8,8 +8,8 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Request Quote, Book Demo, Talk To Sales"
-        description="The contact experience is designed for high-ticket B2B conversion, with a premium presentation and a backend structure that can later plug into CRM and sales automation tools."
-        stat="High-Touch Conversion"
+        description="Whether you're ready to deploy or still evaluating, our team can help you find the right path forward."
+        stat="Direct Access"
       />
 
       <section className="py-20 md:py-28">

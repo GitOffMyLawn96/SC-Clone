@@ -58,19 +58,7 @@ export function HighdraHero() {
       </div>
 
       {/* Darkening overlays */}
-      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-[#000f2b] via-transparent to-[#000f2b]/30" />
-
-      {/* Massive title behind the drone */}
-      <div className="pointer-events-none absolute inset-0 z-[2] flex items-center justify-center">
-        <motion.h1
-          initial={false}
-          animate={{ opacity: 0.06, scale: 1 }}
-          transition={{ delay: 0.2, duration: 1.2, ease }}
-          className="select-none text-[18vw] font-bold uppercase leading-none tracking-[0.08em] text-white"
-        >
-          HIGHDRA
-        </motion.h1>
-      </div>
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-black via-transparent to-black/30" />
 
       {/* Floating stat callouts */}
       <div className="pointer-events-none absolute inset-0 z-[5] hidden lg:block">
@@ -102,7 +90,7 @@ export function HighdraHero() {
           initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.8, ease }}
-          className="text-xs font-medium uppercase tracking-[0.4em] text-[var(--color-blue-light)]"
+          className="text-xs font-medium uppercase tracking-[0.4em] text-[var(--color-gold)]"
         >
           Product
         </motion.p>

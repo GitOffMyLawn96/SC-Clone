@@ -6,6 +6,7 @@ import { MetricStrip } from "@/components/marketing/metric-strip";
 import { Timeline } from "@/components/marketing/timeline";
 import { CinematicHero } from "@/components/marketing/cinematic-hero";
 import { DroneScrollSequence } from "@/components/marketing/drone-scroll-sequence";
+import { ProductShowcase } from "@/components/marketing/product-showcase";
 import { Reveal } from "@/components/system/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { MagneticCard } from "@/components/ui/magnetic-card";
@@ -51,6 +52,8 @@ export default function HomePage() {
         features={homepageHighlights}
       />
 
+      <ProductShowcase />
+
       <FeatureGrid
         eyebrow="Payload And Sensor Flexibility"
         title="One Platform, Multiple High-Value Workflows"
@@ -87,7 +90,7 @@ export default function HomePage() {
                       </p>
                       <Link
                         href={`/use-cases/${useCase.slug}`}
-                        className="mt-8 inline-flex text-[13px] font-medium uppercase tracking-[0.2em] text-[var(--color-blue-light)] transition hover:text-white"
+                        className="mt-8 inline-flex text-[13px] font-medium uppercase tracking-[0.2em] text-white/70 transition hover:text-[var(--color-gold)]"
                       >
                         Learn More →
                       </Link>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/system/reveal";
@@ -13,6 +14,7 @@ type Payload = {
   specs: string[];
   color: string;
   icon: string;
+  image?: string;
 };
 
 const payloads: Payload[] = [
@@ -123,31 +125,57 @@ export function PayloadCarousel() {
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="grid gap-8 lg:grid-cols-2"
             >
-              {/* Visual placeholder */}
+              {/* Payload image */}
               <div
-                className="flex items-center justify-center rounded-xl border border-white/8 bg-white/[0.02] p-12"
+                className="relative flex min-h-[320px] items-center justify-center overflow-hidden rounded-xl border border-white/8"
                 style={{
                   background: `radial-gradient(circle at center, ${active.color}08, transparent 70%), rgba(255,255,255,0.02)`,
                 }}
               >
-                <div className="text-center">
-                  <div
-                    className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full text-4xl"
-                    style={{
-                      background: `${active.color}15`,
-                      color: active.color,
-                      boxShadow: `0 0 40px ${active.color}20`,
-                    }}
-                  >
-                    {active.icon}
+                {active.image ? (
+                  <>
+                    <Image
+                      src={active.image}
+                      alt={`${active.name} payload`}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  </>
+                ) : (
+                  <div className="flex flex-col items-center gap-4 p-12">
+                    <div
+                      className="flex h-16 w-16 items-center justify-center rounded-full border border-white/10"
+                      style={{ background: `${active.color}10` }}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-7 w-7 text-white/20"
+                      >
+                        <rect x="3" y="3" width="18" height="18" rx="2" />
+                        <circle cx="9" cy="9" r="2" />
+                        <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                      </svg>
+                    </div>
+                    <div className="text-center">
+                      <p
+                        className="text-lg font-light uppercase tracking-[0.08em]"
+                        style={{ color: active.color }}
+                      >
+                        {active.name}
+                      </p>
+                      <p className="mt-1 text-[11px] font-extralight text-white/20">
+                        Payload photo placeholder
+                      </p>
+                    </div>
                   </div>
-                  <p
-                    className="text-2xl font-light uppercase tracking-[0.08em]"
-                    style={{ color: active.color }}
-                  >
-                    {active.name}
-                  </p>
-                </div>
+                )}
               </div>
 
               {/* Details */}

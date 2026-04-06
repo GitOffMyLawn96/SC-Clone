@@ -147,7 +147,7 @@ export function HighdraExplorer() {
       </div>
 
       {/* Left half overlay for mobile, left panel for desktop */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#000f2b] via-[#000f2b]/80 to-transparent lg:w-[55%]" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-r from-black via-black/80 to-transparent lg:w-[55%]" />
 
       {/* Content panels */}
       <div className="relative z-20 flex h-full items-center">

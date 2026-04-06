@@ -11,11 +11,11 @@ type PageHeroProps = {
 export function PageHero({ eyebrow, title, description, stat }: PageHeroProps) {
   return (
     <section className="relative overflow-hidden border-b border-white/8 py-24 md:py-32">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,124,176,0.14),transparent_35%),radial-gradient(circle_at_top_right,rgba(252,185,0,0.08),transparent_24%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,124,176,0.06),transparent_35%),radial-gradient(circle_at_top_right,rgba(252,185,0,0.06),transparent_24%)]" />
       <Container className="relative grid gap-10 lg:grid-cols-[1.4fr_0.7fr] lg:items-end">
         <Reveal>
           <div>
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-[var(--color-blue-light)]">
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-[var(--color-gold)]">
             {eyebrow}
           </p>
           <h1 className="text-5xl font-light uppercase tracking-[0.05em] text-white md:text-7xl">

@@ -17,7 +17,7 @@ const Scene = dynamic(
 
 function HeroPoster({ label }: { label?: string }) {
   return (
-    <div className="relative h-full w-full overflow-hidden bg-[radial-gradient(circle_at_top,rgba(0,124,176,0.16),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(252,185,0,0.1),transparent_28%),rgba(255,255,255,0.03)]">
+    <div className="relative h-full w-full overflow-hidden bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.04),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(252,185,0,0.06),transparent_28%),rgba(255,255,255,0.02)]">
       <Image
         src="/higdhra-poster.svg"
         alt="HIGHDRA drone system"
@@ -91,7 +91,7 @@ export function DroneHero({
           enableOrbit={enableOrbit}
           dpr={quality.dpr}
         />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(180deg,transparent,rgba(0,15,43,0.9))]" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.9))]" />
       </div>
       <div className="mt-4 grid gap-3 md:grid-cols-3">
         {calloutItems.map((item) => (

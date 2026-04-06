@@ -13,7 +13,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/8 bg-[rgba(0,15,43,0.82)] backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-white/8 bg-[rgba(0,0,0,0.85)] backdrop-blur-xl">
       <Container className="flex min-h-[72px] items-center justify-between">
         <Link href="/" className="flex shrink-0 items-center" aria-label="starcopter home">
           <Image
@@ -55,7 +55,7 @@ export function SiteHeader() {
 
       <div
         className={cn(
-          "overflow-hidden border-t border-white/8 bg-[rgba(0,15,43,0.98)] transition-[max-height] duration-300 xl:hidden",
+          "overflow-hidden border-t border-white/8 bg-[rgba(0,0,0,0.98)] transition-[max-height] duration-300 xl:hidden",
           open ? "max-h-[480px]" : "max-h-0",
         )}
       >

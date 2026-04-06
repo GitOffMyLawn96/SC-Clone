@@ -87,8 +87,8 @@ export function CinematicHero() {
             />
           </div>
         )}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#000f2b] via-[#000f2b]/40 to-transparent" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#000f2b]/80 via-transparent to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-transparent" />
       </div>
 
       {/* Content overlay — initial={false} keeps copy visible if JS is slow or blocked (e.g. LAN dev without allowedDevOrigins) */}
@@ -97,7 +97,7 @@ export function CinematicHero() {
           initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.8, ease }}
-          className="mb-6 text-xs font-medium uppercase tracking-[0.32em] text-[var(--color-blue-light)]"
+          className="mb-6 text-xs font-medium uppercase tracking-[0.32em] text-[var(--color-gold)]"
         >
           High-Performance Drone Platform
         </motion.p>

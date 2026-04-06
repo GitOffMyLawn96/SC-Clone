@@ -57,11 +57,11 @@ export function Timeline({ items }: TimelineProps) {
         {/* Desktop: spine with alternating cards */}
         <div className="relative mt-16">
           {/* Spine: dim base always visible; gradient layer draws on scroll (scaleY) */}
-          <div className="pointer-events-none absolute left-1/2 z-[5] hidden h-full w-px -translate-x-1/2 lg:block">
-            <div className="absolute inset-0 bg-gradient-to-b from-white/18 via-white/10 to-white/18" />
+          <div className="pointer-events-none absolute left-1/2 z-[5] hidden h-full w-0.5 -translate-x-1/2 lg:block">
+            <div className="absolute inset-0 bg-white/15" />
             <div
               ref={lineRef}
-              className="absolute inset-0 origin-top bg-gradient-to-b from-[var(--color-blue)] via-[var(--color-gold)] to-[var(--color-blue)]"
+              className="absolute inset-0 origin-top bg-[var(--color-gold)]"
             />
           </div>
 
@@ -73,14 +73,14 @@ export function Timeline({ items }: TimelineProps) {
                   <div className="relative grid items-center lg:grid-cols-2">
                     {/* Node dot */}
                     <div className="absolute left-1/2 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 lg:block">
-                      <div className="timeline-node h-3 w-3 rounded-full border-2 border-[var(--color-gold)] bg-[#000f2b]" />
-                      <div className="absolute inset-0 animate-ping rounded-full bg-[var(--color-gold)]/20" />
+                      <div className="timeline-node h-4 w-4 rounded-full border-2 border-[var(--color-gold)] bg-black shadow-[0_0_12px_rgba(252,185,0,0.4)]" />
+                      <div className="absolute inset-0 animate-ping rounded-full bg-[var(--color-gold)]/30" />
                     </div>
 
                     <div
                       className={`${isLeft ? "lg:pr-16 lg:text-right" : "lg:col-start-2 lg:pl-16"}`}
                     >
-                      <article className="rounded-xl border border-white/8 bg-white/[0.03] p-8">
+                      <article className="rounded-xl border border-white/12 bg-[#111111] p-8">
                         <p className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--color-gold)]">
                           {item.year}
                         </p>

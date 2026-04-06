@@ -31,12 +31,12 @@ export function FeatureGrid({
               <TiltCard
                 glowColor={
                   index % 2 === 0
-                    ? "rgba(0,124,176,0.3)"
-                    : "rgba(252,185,0,0.25)"
+                    ? "rgba(252,185,0,0.15)"
+                    : "rgba(255,255,255,0.08)"
                 }
               >
                 <article className="group rounded-xl border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-8 transition duration-300 hover:border-white/15">
-                  <p className="text-xs font-medium uppercase tracking-[0.28em] text-[var(--color-blue-light)]">
+                  <p className="text-xs font-medium uppercase tracking-[0.28em] text-[var(--color-gold)]">
                     {feature.eyebrow}
                   </p>
                   <h3 className="mt-4 text-2xl font-light uppercase tracking-[0.04em] text-white md:text-3xl">

@@ -172,8 +172,8 @@ export function DroneScrollSequence() {
       </div>
 
       {/* Gradient overlays */}
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-[#000f2b]/70 via-transparent to-transparent" />
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-[#000f2b]/60 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-black/70 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
       {/* Content panels */}
       <Container className="relative z-20 flex h-full items-center">

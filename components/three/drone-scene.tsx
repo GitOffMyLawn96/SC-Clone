@@ -337,8 +337,8 @@ export function DroneScene({
       camera={{ position: defaultCamPos, fov: 34 }}
       className="h-full w-full"
     >
-      <color attach="background" args={["#000f2b"]} />
-      <fog attach="fog" args={["#000f2b", 10, 24]} />
+      <color attach="background" args={["#000000"]} />
+      <fog attach="fog" args={["#000000", 10, 24]} />
       <ambientLight intensity={reducedEffects ? 1.4 : 0.85} />
       <directionalLight
         castShadow={!reducedEffects}
@@ -350,7 +350,7 @@ export function DroneScene({
         position={[-8, 8, 6]}
         angle={0.32}
         penumbra={1}
-        intensity={reducedEffects ? 0.8 : 1.8}
+        intensity={reducedEffects ? 0.6 : 1.0}
         color="#007cb0"
       />
       <spotLight

@@ -10,7 +10,7 @@ type TiltCardProps = {
   glowColor?: string;
 };
 
-export function TiltCard({ children, className, maxTilt = 4, glowColor = "rgba(0,124,176,0.35)" }: TiltCardProps) {
+export function TiltCard({ children, className, maxTilt = 4, glowColor = "rgba(0,124,176,0.18)" }: TiltCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
 

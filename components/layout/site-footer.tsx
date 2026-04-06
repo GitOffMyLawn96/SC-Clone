@@ -5,7 +5,7 @@ import { footerLinks, siteConfig } from "@/lib/site-data";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/8 bg-[rgba(0,10,28,0.98)] py-16">
+    <footer className="border-t border-white/8 bg-[rgba(0,0,0,0.98)] py-16">
       <Container className="grid gap-12 lg:grid-cols-[1.3fr_1fr_1fr]">
         <div className="space-y-6">
           <Image

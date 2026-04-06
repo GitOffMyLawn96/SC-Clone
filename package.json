@@ -4,7 +4,9 @@
   "private": true,
   "description": "Premium Starcopter marketing site rebuild with interactive 3D HIGHDRA storytelling.",
   "scripts": {
+    "postinstall": "patch-package",
     "dev": "next dev",
+    "dev:lan": "next dev --hostname 0.0.0.0",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
@@ -46,6 +48,7 @@
     "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.4",
     "eslint-config-next": "^16.2.2",
+    "patch-package": "^8.0.1",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3"
   }

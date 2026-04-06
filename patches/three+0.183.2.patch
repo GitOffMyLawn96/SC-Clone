@@ -1,0 +1,29 @@
+diff --git a/node_modules/three/build/three.cjs b/node_modules/three/build/three.cjs
+index 3a1ddbe..f73d82a 100644
+--- a/node_modules/three/build/three.cjs
++++ b/node_modules/three/build/three.cjs
+@@ -55733,8 +55733,6 @@ class Clock {
+ 		 */
+ 		this.running = false;
+ 
+-		warn( 'THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.' ); // @deprecated, r183
+-
+ 	}
+ 
+ 	/**
+diff --git a/node_modules/three/build/three.core.js b/node_modules/three/build/three.core.js
+index aa93fc3..f4591d9 100644
+--- a/node_modules/three/build/three.core.js
++++ b/node_modules/three/build/three.core.js
+@@ -55731,10 +55731,9 @@ class Clock {
+ 		 */
+ 		this.running = false;
+ 
+-		warn( 'THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.' ); // @deprecated, r183
+-
+ 	}
+ 
++
+ 	/**
+ 	 * Starts the clock. When `autoStart` is set to `true`, the method is automatically
+ 	 * called by the class.

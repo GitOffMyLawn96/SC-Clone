@@ -56,11 +56,12 @@ export function Timeline({ items }: TimelineProps) {
 
         {/* Desktop: spine with alternating cards */}
         <div className="relative mt-16">
-          {/* Animated vertical line */}
-          <div className="absolute left-1/2 hidden h-full w-px -translate-x-1/2 lg:block">
+          {/* Spine: dim base always visible; gradient layer draws on scroll (scaleY) */}
+          <div className="pointer-events-none absolute left-1/2 z-[5] hidden h-full w-px -translate-x-1/2 lg:block">
+            <div className="absolute inset-0 bg-gradient-to-b from-white/18 via-white/10 to-white/18" />
             <div
               ref={lineRef}
-              className="h-full w-full origin-top bg-gradient-to-b from-[var(--color-blue)] via-[var(--color-gold)] to-[var(--color-blue)]"
+              className="absolute inset-0 origin-top bg-gradient-to-b from-[var(--color-blue)] via-[var(--color-gold)] to-[var(--color-blue)]"
             />
           </div>
 

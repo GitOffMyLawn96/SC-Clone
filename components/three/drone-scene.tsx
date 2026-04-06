@@ -20,6 +20,9 @@ type DroneSceneProps = {
   cameraPosition?: [number, number, number];
   cameraTarget?: [number, number, number];
   enableOrbit?: boolean;
+  /** Device pixel ratio range; defaults by quality tier if omitted */
+  dpr?: [number, number];
+  frameloop?: "always" | "demand" | "never";
 };
 
 function MouseParallaxCamera({
@@ -316,15 +319,21 @@ export function DroneScene({
   cameraPosition,
   cameraTarget,
   enableOrbit = true,
+  dpr: dprProp,
+  frameloop = "always",
 }: DroneSceneProps) {
   const hasScrollCamera = cameraPosition && cameraTarget;
   const hasMouseParallax = !hasScrollCamera && (mouseX !== 0 || mouseY !== 0);
   const defaultCamPos: [number, number, number] = [7, 4, 7];
+  const dpr =
+    dprProp ?? (reducedEffects ? ([1, 1.2] as [number, number]) : ([1, 1.8] as [number, number]));
 
   return (
     <Canvas
-      shadows={!reducedEffects}
-      dpr={reducedEffects ? [1, 1.2] : [1, 1.8]}
+      shadows={reducedEffects ? false : "percentage"}
+      dpr={dpr}
+      frameloop={frameloop}
+      gl={{ antialias: !reducedEffects, powerPreference: "high-performance" }}
       camera={{ position: defaultCamPos, fov: 34 }}
       className="h-full w-full"
     >

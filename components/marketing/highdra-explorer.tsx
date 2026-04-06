@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { useAdaptiveQuality } from "@/lib/hooks/use-adaptive-quality";
+import { useWebGLAvailable } from "@/lib/hooks/use-webgl-available";
 import { Container } from "@/components/layout/container";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
 
@@ -72,30 +73,37 @@ const sections: ExplorerSection[] = [
 export function HighdraExplorer() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const quality = useAdaptiveQuality();
+  const webgl = useWebGLAvailable();
   const [activeIndex, setActiveIndex] = useState(0);
 
-  useEffect(() => {
-    if (!wrapperRef.current || quality.tier === "poster") return;
+  const showExplorer3D = quality.tier !== "poster" && webgl;
 
-    const trigger = ScrollTrigger.create({
-      trigger: wrapperRef.current,
-      start: "top top",
-      end: `+=${sections.length * 100}%`,
-      pin: true,
-      scrub: quality.scrubSmoothing,
-      onUpdate: (self) => {
-        const idx = Math.min(
-          sections.length - 1,
-          Math.floor(self.progress * sections.length),
-        );
-        setActiveIndex(idx);
-      },
-    });
+  useLayoutEffect(() => {
+    const root = wrapperRef.current;
+    if (!root || !showExplorer3D) return;
 
-    return () => trigger.kill();
-  }, [quality.tier, quality.scrubSmoothing]);
+    const ctx = gsap.context(() => {
+      ScrollTrigger.create({
+        trigger: root,
+        start: "top top",
+        end: `+=${sections.length * 100}%`,
+        pin: true,
+        pinReparent: false,
+        scrub: quality.scrubSmoothing,
+        onUpdate: (self) => {
+          const idx = Math.min(
+            sections.length - 1,
+            Math.floor(self.progress * sections.length),
+          );
+          setActiveIndex(idx);
+        },
+      });
+    }, root);
 
-  if (quality.tier === "poster") {
+    return () => ctx.revert();
+  }, [showExplorer3D, quality.scrubSmoothing]);
+
+  if (!showExplorer3D) {
     return (
       <section className="py-20">
         <Container>
@@ -134,6 +142,7 @@ export function HighdraExplorer() {
           enableOrbit={false}
           exploded={active.exploded}
           showLabels={active.exploded}
+          dpr={quality.dpr}
         />
       </div>
 

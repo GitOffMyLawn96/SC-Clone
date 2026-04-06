@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { useAdaptiveQuality } from "@/lib/hooks/use-adaptive-quality";
+import { useWebGLAvailable } from "@/lib/hooks/use-webgl-available";
 import { Container } from "@/components/layout/container";
 
 const Scene = dynamic(
@@ -65,53 +66,93 @@ const breakpoints: BreakpointData[] = [
 export function DroneScrollSequence() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const quality = useAdaptiveQuality();
+  const webgl = useWebGLAvailable();
   const [activeIndex, setActiveIndex] = useState(0);
 
-  useEffect(() => {
-    if (!wrapperRef.current || quality.tier === "poster") return;
+  const use3D = quality.tier !== "poster" && webgl;
 
-    const sections = wrapperRef.current.querySelectorAll<HTMLElement>("[data-seq-panel]");
+  useLayoutEffect(() => {
+    const root = wrapperRef.current;
+    if (!root || !use3D) return;
 
-    const trigger = ScrollTrigger.create({
-      trigger: wrapperRef.current,
-      start: "top top",
-      end: `+=${breakpoints.length * 100}%`,
-      pin: true,
-      scrub: quality.scrubSmoothing,
-      onUpdate: (self) => {
-        const idx = Math.min(
-          breakpoints.length - 1,
-          Math.floor(self.progress * breakpoints.length),
-        );
-        setActiveIndex(idx);
-      },
-    });
+    const ctx = gsap.context(() => {
+      const sections = root.querySelectorAll<HTMLElement>("[data-seq-panel]");
 
-    sections.forEach((section, i) => {
-      gsap.fromTo(
-        section,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.4,
-          scrollTrigger: {
-            trigger: wrapperRef.current!,
-            start: `${(i / breakpoints.length) * 100}% top`,
-            end: `${((i + 0.5) / breakpoints.length) * 100}% top`,
-            scrub: true,
-          },
+      ScrollTrigger.create({
+        trigger: root,
+        start: "top top",
+        end: `+=${breakpoints.length * 100}%`,
+        pin: true,
+        pinReparent: false,
+        scrub: quality.scrubSmoothing,
+        onUpdate: (self) => {
+          const idx = Math.min(
+            breakpoints.length - 1,
+            Math.floor(self.progress * breakpoints.length),
+          );
+          setActiveIndex(idx);
         },
-      );
-    });
+      });
 
-    return () => {
-      trigger.kill();
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
-  }, [quality.tier, quality.scrubSmoothing]);
+      sections.forEach((section, i) => {
+        gsap.fromTo(
+          section,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            scrollTrigger: {
+              trigger: root,
+              start: `${(i / breakpoints.length) * 100}% top`,
+              end: `${((i + 0.5) / breakpoints.length) * 100}% top`,
+              scrub: true,
+            },
+          },
+        );
+      });
+    }, root);
+
+    return () => ctx.revert();
+  }, [use3D, quality.scrubSmoothing]);
 
   if (quality.tier === "poster") return null;
+
+  if (!webgl) {
+    return (
+      <section className="py-20 md:py-28">
+        <Container>
+          <div className="mb-12 text-center">
+            <p className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--color-gold)]">
+              The platform
+            </p>
+            <h2 className="mt-4 text-3xl font-light uppercase tracking-[0.04em] text-white md:text-4xl">
+              Engineered as a complete system
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-[15px] font-extralight leading-7 text-white/55">
+              Scroll-driven 3D is unavailable in this browser; here is the same story as static sections.
+            </p>
+          </div>
+          <div className="grid gap-10">
+            {breakpoints.map((bp) => (
+              <article
+                key={bp.label}
+                className="rounded-xl border border-white/8 bg-white/[0.03] p-8 md:p-10"
+              >
+                <p className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--color-gold)]">
+                  {bp.label}
+                </p>
+                <h3 className="mt-4 text-2xl font-light uppercase tracking-[0.04em] text-white md:text-3xl">
+                  {bp.title}
+                </h3>
+                <p className="mt-4 text-[15px] font-extralight leading-7 text-white/55">{bp.description}</p>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+    );
+  }
 
   const active = breakpoints[activeIndex];
 
@@ -126,6 +167,7 @@ export function DroneScrollSequence() {
           cameraPosition={active.cameraPosition}
           cameraTarget={active.cameraTarget}
           enableOrbit={false}
+          dpr={quality.dpr}
         />
       </div>
 

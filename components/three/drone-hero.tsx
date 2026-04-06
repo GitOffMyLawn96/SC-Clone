@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useMemo } from "react";
 import { useMouseParallax } from "@/lib/hooks/use-mouse-parallax";
 import { useAdaptiveQuality } from "@/lib/hooks/use-adaptive-quality";
+import { useWebGLAvailable } from "@/lib/hooks/use-webgl-available";
 
 const Scene = dynamic(
   () => import("@/components/three/drone-scene").then((mod) => mod.DroneScene),
@@ -52,6 +53,7 @@ export function DroneHero({
 }: DroneHeroProps) {
   const mouse = useMouseParallax();
   const quality = useAdaptiveQuality();
+  const webgl = useWebGLAvailable();
 
   const calloutItems = useMemo(
     () => [
@@ -62,7 +64,7 @@ export function DroneHero({
     [],
   );
 
-  if (quality.tier === "poster") {
+  if (quality.tier === "poster" || !webgl) {
     return (
       <div className={className}>
         <div className="relative h-[420px] overflow-hidden rounded-xl border border-white/8 md:h-[620px]">
@@ -87,6 +89,7 @@ export function DroneHero({
           cameraPosition={cameraPosition}
           cameraTarget={cameraTarget}
           enableOrbit={enableOrbit}
+          dpr={quality.dpr}
         />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(180deg,transparent,rgba(0,15,43,0.9))]" />
       </div>

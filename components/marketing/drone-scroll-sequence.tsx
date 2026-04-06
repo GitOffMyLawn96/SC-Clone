@@ -76,8 +76,8 @@ export function DroneScrollSequence() {
     if (!root || !use3D) return;
 
     const ctx = gsap.context(() => {
-      const sections = root.querySelectorAll<HTMLElement>("[data-seq-panel]");
-
+      // Only pin + drive activeIndex. Do not animate panel opacity with GSAP here — it
+      // fights React's inline opacity and leaves multiple titles visible after scrub ends.
       ScrollTrigger.create({
         trigger: root,
         start: "top top",
@@ -92,24 +92,6 @@ export function DroneScrollSequence() {
           );
           setActiveIndex(idx);
         },
-      });
-
-      sections.forEach((section, i) => {
-        gsap.fromTo(
-          section,
-          { opacity: 0, y: 40 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.4,
-            scrollTrigger: {
-              trigger: root,
-              start: `${(i / breakpoints.length) * 100}% top`,
-              end: `${((i + 0.5) / breakpoints.length) * 100}% top`,
-              scrub: true,
-            },
-          },
-        );
       });
     }, root);
 
@@ -154,7 +136,7 @@ export function DroneScrollSequence() {
     );
   }
 
-  const active = breakpoints[activeIndex];
+  const active = breakpoints[activeIndex] ?? breakpoints[0];
 
   return (
     <section ref={wrapperRef} className="relative h-screen overflow-hidden">
@@ -171,20 +153,19 @@ export function DroneScrollSequence() {
         />
       </div>
 
-      {/* Gradient overlays */}
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-black/70 via-transparent to-transparent" />
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+      {/* Gradient overlays — strong left scrim keeps copy readable over the 3D scene */}
+      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-black via-black/50 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/70 via-transparent to-black/20" />
 
-      {/* Content panels */}
-      <Container className="relative z-20 flex h-full items-center">
-        <div className="max-w-lg">
+      {/* Content panels — above canvas + scrims */}
+      <Container className="relative z-30 flex h-full items-center">
+        <div className="relative w-full max-w-lg min-h-[min(45vh,380px)]">
           {breakpoints.map((bp, i) => (
             <div
               key={bp.label}
               data-seq-panel
-              className="transition-opacity duration-500"
+              className="absolute left-0 top-0 w-full transition-opacity duration-300 ease-out"
               style={{
-                position: "absolute",
                 opacity: activeIndex === i ? 1 : 0,
                 pointerEvents: activeIndex === i ? "auto" : "none",
               }}

@@ -105,6 +105,12 @@ export const homepageHighlights: FeatureCard[] = [
     description:
       "Access high-end drone capability without tying up capital in underutilized hardware, maintenance cycles, or replacement risk.",
   },
+  {
+    eyebrow: "Compliance Ready",
+    title: "Built for serious programs and regulatory expectations.",
+    description:
+      "Documentation, traceability, and certification-minded design help teams deploy responsibly and scale operations with confidence.",
+  },
 ];
 
 export const capabilityCards: FeatureCard[] = [

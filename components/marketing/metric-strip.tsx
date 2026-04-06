@@ -12,10 +12,10 @@ type MetricStripProps = {
 export function MetricStrip({ metrics }: MetricStripProps) {
   return (
     <section className="border-y border-white/8 bg-white/[0.02] py-10">
-      <Container className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      <Container className="grid items-stretch gap-6 md:grid-cols-2 xl:grid-cols-4">
         {metrics.map((metric, index) => (
-          <Reveal key={metric.label} delay={index * 0.06}>
-            <div className="rounded-xl border border-white/8 bg-white/[0.03] p-6">
+          <Reveal key={metric.label} delay={index * 0.06} className="h-full">
+            <div className="flex h-full flex-col rounded-xl border border-white/8 bg-white/[0.03] p-6">
               <AnimatedCounter
                 value={metric.value}
                 delay={index * 0.15}
@@ -24,7 +24,9 @@ export function MetricStrip({ metrics }: MetricStripProps) {
               <p className="mt-3 text-sm font-medium uppercase tracking-[0.2em] text-white/80">
                 {metric.label}
               </p>
-              <p className="mt-3 text-sm font-extralight leading-6 text-white/50">{metric.detail}</p>
+              <p className="mt-auto pt-3 text-sm font-extralight leading-6 text-white/50">
+                {metric.detail}
+              </p>
             </div>
           </Reveal>
         ))}

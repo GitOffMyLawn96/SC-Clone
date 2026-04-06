@@ -140,13 +140,13 @@ export function ContactForm() {
           Prefer to talk directly?
         </h3>
         <p className="mt-5 text-[15px] font-extralight leading-7 text-white/55">
-          Call us, send an email, or visit our offices in Braunschweig
-          or Kassel. We respond quickly.
+          Call us, send an email, or visit our office in Braunschweig.
+          We respond quickly.
         </p>
         <div className="mt-8 space-y-4 text-sm font-extralight text-white/55">
           <p>Phone: +49 531 428 78 50</p>
           <p>Email: info@starcopter.com</p>
-          <p>Locations: Braunschweig / Kassel</p>
+          <p>Location: Braunschweig</p>
         </div>
         <div className="mt-8 flex flex-wrap gap-4">
           <ButtonLink href="mailto:info@starcopter.com" variant="secondary">

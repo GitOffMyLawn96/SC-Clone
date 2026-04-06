@@ -37,6 +37,35 @@ export type NewsPost = {
   title: string;
   date: string;
   excerpt: string;
+  externalUrl?: string;
+};
+
+export type LeadershipMember = {
+  name: string;
+  role: string;
+  bio: string;
+};
+
+export type Partner = {
+  name: string;
+  category: "technology" | "sensor" | "certification" | "investor";
+};
+
+export type ProcessStep = {
+  step: number;
+  title: string;
+  description: string;
+};
+
+export type SensorPartner = {
+  name: string;
+  type: string;
+  highlight: string;
+};
+
+export type CompanyStat = {
+  value: string;
+  label: string;
 };
 
 export const siteConfig = {
@@ -48,7 +77,7 @@ export const siteConfig = {
   contact: {
     phone: "+49 531 428 78 50",
     email: "info@starcopter.com",
-    locations: ["Braunschweig", "Kassel"],
+    locations: ["Braunschweig"],
   },
 };
 
@@ -169,49 +198,55 @@ export const productFeatures: FeatureCard[] = [
 
 export const businessModelCards: FeatureCard[] = [
   {
-    eyebrow: "No Idle Capital",
-    title: "Access capability when the project requires it.",
+    eyebrow: "No Downtime",
+    title: "You don't pay for idle time or storage.",
     description:
-      "The commercial model avoids locking budget into a platform that may sit unused between specialized missions.",
+      "No warehouse costs, no depreciation ticking while the drone sits between projects. You only pay when the HIGHDRA is working for you.",
   },
   {
-    eyebrow: "Always Current",
-    title: "Stay on current technology without replacement cycles.",
+    eyebrow: "No Investment",
+    title: "No upfront capital expenditure required.",
     description:
-      "Customers benefit from ongoing platform evolution without taking on the operational burden of hardware ownership.",
+      "Rent the HIGHDRA whenever and wherever you need it. Starting at approximately \u20AC100 per flight hour, access high-end capability without a purchase decision.",
   },
   {
-    eyebrow: "Operational Simplicity",
-    title: "Service, support, and readiness are built into the relationship.",
+    eyebrow: "No Outdated Tech",
+    title: "Always fly the latest platform revision.",
     description:
-      "The model is designed to reduce downtime, procurement friction, and technical dead ends during project delivery.",
+      "We optimize the HIGHDRA continuously. Every rental gives you the current generation of hardware, firmware, and sensor integration.",
+  },
+  {
+    eyebrow: "No Hassle",
+    title: "Our service team handles the technology.",
+    description:
+      "Maintenance, calibration, firmware updates, and readiness checks are our responsibility. You concentrate fully on your project delivery.",
   },
 ];
 
 export const technologyPillars: FeatureCard[] = [
   {
     eyebrow: "Airframe",
-    title: "Compact transportability with high-load structure.",
+    title: "Hexacopter built for heavy payloads and compact transport.",
     description:
-      "A reinforced modular body designed for portability, reliability, and repeatable setup quality in the field.",
+      "Six redundant drive units on a carbon-reinforced frame with modular arms. Tool-free assembly, fits in a car trunk, and field-ready in under five minutes.",
   },
   {
     eyebrow: "Power",
-    title: "Battery technology engineered for practical endurance.",
+    title: "Automotive-inspired 6-battery array with 1,000-cycle warranty.",
     description:
-      "Longer cycle life and strong real-world performance shift the economics of sustained commercial use.",
+      "In-house battery technology with guaranteed 80% capacity at 1,000 charge cycles. The charging hub handles 36 packs simultaneously for continuous fleet operations.",
   },
   {
     eyebrow: "Avionics",
-    title: "Auterion-based control and payload connectivity.",
+    title: "Auterion Skynode X as the central processing unit.",
     description:
-      "Open, modern avionics support flexibility for operators and custom integration scenarios.",
+      "Flight control, navigation, and mission software run on Auterion\u2019s open stack with Auterion Mission Control. Full EU regulatory compliance via standardized architecture.",
   },
   {
     eyebrow: "Software",
-    title: "A platform that evolves with new workflows.",
+    title: "Edge-based autonomy with European data sovereignty.",
     description:
-      "The system is designed so payload integration, mission requirements, and operational tooling can keep moving forward.",
+      "Remote operations and live mission updates via the Auterion Suite. Secure data handling through edge processing and an open software architecture built for custom integration.",
   },
 ];
 
@@ -221,63 +256,72 @@ export const useCases: UseCase[] = [
     title: "Surveying And Mapping",
     kicker: "Capture high-quality spatial data with fewer compromises.",
     summary:
-      "For geospatial teams that need stable performance, larger sensors, and efficient data capture over demanding terrain.",
+      "For geospatial teams that need stable performance, larger sensors, and efficient data capture over demanding terrain. PhaseOne 150 MP RGB for orthomosaics and CHCNAV LiDAR for production-grade point clouds.",
     outcomes: [
-      "Reliable LiDAR and RGB payload support",
-      "Field-ready deployment in compact transport packaging",
-      "Long mission windows for efficient acquisition",
+      "Survey-grade orthomosaics with PhaseOne 150 MP and RTK geotagging",
+      "Dense point clouds via CHCNAV LiDAR for terrain and vegetation modeling",
+      "35-minute mission windows with 7.5 kg payload for efficient site coverage",
+      "Under 5-minute field setup with tool-free assembly from a compact case",
     ],
-    technologies: ["LiDAR", "RGB", "C3-ready operations", "Long-life batteries"],
-    heroStat: "Production-ready point cloud capture",
+    technologies: ["CHCNAV LiDAR", "PhaseOne 150 MP", "RTK Geotagging", "C3 Certified"],
+    heroStat: "150 MP survey-grade capture",
   },
   {
     slug: "inspection-and-infrastructure",
     title: "Inspection And Infrastructure",
     kicker: "Make complex assets easier to inspect safely and repeatedly.",
     summary:
-      "Built for teams performing technical inspections across energy, utilities, and industrial infrastructure where consistency and sensor flexibility matter.",
+      "Built for teams performing technical inspections across energy, utilities, and industrial infrastructure. Workswell radiometric thermal imaging and high-resolution RGB for repeatable, documented inspection workflows.",
     outcomes: [
-      "Thermal and RGB payload adaptability",
-      "Stable platform for repeatable inspection workflows",
-      "Service-backed readiness for scheduled operations",
+      "Radiometric thermal detection of heat anomalies and energy leaks via Workswell sensors",
+      "High-resolution RGB documentation for asset condition records and progress tracking",
+      "Repeatable scheduled inspection workflows with service-backed fleet readiness",
+      "Stable hexacopter platform for consistent data quality across inspection cycles",
     ],
-    technologies: ["RGB", "Infrarot", "Modular payload integration", "Rapid deployment"],
-    heroStat: "High-confidence thermal and visual workflows",
+    technologies: ["Workswell Thermal", "RGB Inspection", "Modular Payload", "Rapid Deployment"],
+    heroStat: "Radiometric thermal workflows",
   },
   {
     slug: "environment-and-agriculture",
     title: "Environment And Agriculture",
     kicker: "Support research, monitoring, and crop intelligence at scale.",
     summary:
-      "For teams combining environmental analysis with advanced sensing and repeatable aerial coverage over changing conditions.",
+      "For teams combining environmental analysis with advanced sensing and repeatable aerial coverage. Multi- and hyperspectral sensors for NDVI, crop analysis, calibrated reflectance, and environmental monitoring.",
     outcomes: [
-      "Multi- and hyperspectral compatibility",
-      "Payload flexibility for specialized data collection",
-      "Operational efficiency for recurring survey programs",
+      "NDVI and vegetation index mapping with calibrated spectral sensors",
+      "Multi- and hyperspectral compatibility for research-grade data acquisition",
+      "Long-endurance flights for efficient coverage of large agricultural areas",
+      "Pay-per-use access eliminates capital commitment for seasonal operations",
     ],
-    technologies: ["Spectral sensors", "LiDAR", "Flexible software interfaces", "Long endurance"],
-    heroStat: "Advanced sensing without a custom aircraft program",
+    technologies: ["Spectral Sensors", "CHCNAV LiDAR", "Calibrated Reflectance", "Long Endurance"],
+    heroStat: "Calibrated spectral sensing",
   },
 ];
 
 export const companyTimeline = [
   {
-    year: "Now",
-    title: "Field-ready drone platform",
+    year: "2017",
+    title: "Founded in Germany",
     detail:
-      "Starcopter focuses on a durable, modular aircraft and a commercial model that makes high-end operations more accessible.",
+      "Henner Niebuhr and Lasse Fr\u00F6hner founded Starcopter with a clear goal: design and manufacture electric-driven unmanned aerial systems with world-leading performance in efficiency, safety, and functionality.",
   },
   {
-    year: "Platform",
-    title: "System thinking over isolated hardware",
+    year: "2023",
+    title: "Seed funding secured",
     detail:
-      "Hardware, power systems, software, and support are treated as one operating system for demanding drone programs.",
+      "BraWo Capital Group invested in the company\u2019s vision, enabling the team to accelerate HIGHDRA development and scale in-house manufacturing at Rebenring 31, Braunschweig.",
   },
   {
-    year: "Future",
-    title: "Built to expand with new payload and workflow needs",
+    year: "2024",
+    title: "HIGHDRA unveiled at INTERGEO",
     detail:
-      "The product strategy is designed around adaptability, certifications, and long-term commercial relevance.",
+      "The HIGHDRA was presented to the global geospatial and drone community at INTERGEO in Stuttgart, introducing the flight-hour pricing model and modular sensor ecosystem.",
+  },
+  {
+    year: "2025",
+    title: "C3 certified and market launch",
+    detail:
+      "HIGHDRA became Germany\u2019s first C3-certified multirotor under EU drone regulations (EASA PR-371). Official market launch followed on June 23, powered by Auterion Skynode X.",
   },
 ];
 
@@ -291,7 +335,7 @@ export const jobPostings: JobPosting[] = [
   },
   {
     title: "Embedded Software Engineer",
-    location: "Kassel / Hybrid",
+    location: "Braunschweig / Hybrid",
     type: "Full-time",
     summary:
       "Work across avionics, payload integration, and operational tooling for the next generation of the HIGHDRA platform.",
@@ -307,25 +351,31 @@ export const jobPostings: JobPosting[] = [
 
 export const newsPosts: NewsPost[] = [
   {
-    slug: "introducing-the-platform-vision",
-    title: "Building A More Operational Drone Platform",
-    date: "April 2026",
-    excerpt:
-      "Why commercial users need more than headline specs and how Starcopter is designing around uptime, adaptability, and service.",
-  },
-  {
-    slug: "sensor-flexibility-without-platform-friction",
-    title: "Sensor Flexibility Without Platform Friction",
+    slug: "integration-is-our-dna",
+    title: "Integration Is Our DNA",
     date: "March 2026",
     excerpt:
-      "A closer look at modular payload thinking for teams running LiDAR, RGB, thermal, and advanced sensing missions.",
+      "A drone shouldn\u2019t be another complex task on your list \u2014 it should be the smartest part of your existing workflow. We\u2019ve engineered our technology to integrate seamlessly where it matters most.",
+    externalUrl:
+      "https://www.linkedin.com/posts/starcopter_starcopter-dronetech-innovation-activity-7421863150502895616-8P1E",
   },
   {
-    slug: "rethinking-commercial-drone-procurement",
-    title: "Rethinking Commercial Drone Procurement",
-    date: "February 2026",
+    slug: "germany-first-c3-certified-multirotor",
+    title: "Germany\u2019s First C3-Certified Multirotor",
+    date: "June 2025",
     excerpt:
-      "How a pay-per-use approach changes the economics of high-performance aerial capability.",
+      "HIGHDRA is now officially C3-certified under EU drone regulations \u2014 making it the first multirotor made in Germany to earn that status. A milestone for safety, reliability, and regulatory readiness.",
+    externalUrl:
+      "https://auterion.com/starcopter-launches-one-of-europes-first-c3-certified-drones-powered-by-auterion",
+  },
+  {
+    slug: "highdra-unveiled-at-intergeo",
+    title: "HIGHDRA Unveiled At INTERGEO 2024",
+    date: "October 2024",
+    excerpt:
+      "Starcopter introduced the HIGHDRA to the global geospatial community at INTERGEO in Stuttgart, showcasing the flight-hour pricing model and modular sensor ecosystem.",
+    externalUrl:
+      "https://dronelife.com/2024/10/10/starcopter-unveils-highdra-a-game-changing-commercial-drone-with-flight-hours-pricing-model/",
   },
 ];
 
@@ -333,24 +383,153 @@ export const faqs = [
   {
     question: "Are the published flight times based on real operating conditions?",
     answer:
-      "Yes. The site story is grounded in real-world operating conditions rather than idealized lab-only claims, which is a key differentiator in the product positioning.",
+      "Yes. The 35-minute specification is measured with a 7.5 kg payload under real-world operating conditions, not idealized lab benchmarks.",
   },
   {
     question: "Can the HIGHDRA support custom payload integrations?",
     answer:
-      "Yes. The platform story emphasizes open interfaces, modularity, and software flexibility so specialized payloads and workflows can be supported.",
+      "Yes. HIGHDRA\u2019s external interfaces are well defined and open. If you need help with integration, our engineering team provides custom payload support. Current ecosystem partners include PhaseOne, CHCNAV, and Workswell.",
   },
   {
-    question: "Why lead with pay-per-use instead of a traditional purchase path?",
+    question: "How does the pay-per-use model work?",
     answer:
-      "Because the commercial model is part of the product value. It lowers upfront commitment, keeps technology current, and reduces ownership-related downtime and replacement pressure.",
+      "Pricing starts at approximately \u20AC100 per flight hour. You need a registered company with a valid operator ID, liability insurance, and at least one pilot with a valid remote pilot certificate. Minimum rental is one month, with delivery typically within three days.",
   },
   {
-    question: "How should the 3D experience behave on lower-powered devices?",
+    question: "Can I purchase or lease the HIGHDRA long-term?",
     answer:
-      "The website is built with progressive enhancement so users get high-quality visuals and clear CTAs even if the interactive scene falls back to a lighter render or poster.",
+      "Yes. For longer periods of use, we offer system sale or leasing contracts that include maintenance. Your HIGHDRA is always mission-ready \u2014 you focus on the project, we handle the technology.",
+  },
+  {
+    question: "Can I get a live demo?",
+    answer:
+      "Absolutely. We offer demos at our Braunschweig facilities. On-site demos are also possible with advance planning. Contact us to schedule.",
+  },
+  {
+    question: "What certifications does the HIGHDRA hold?",
+    answer:
+      "HIGHDRA is C3-certified under EU drone regulations (EASA designation PR-371) \u2014 the first multirotor made in Germany to earn this certification. It meets standards of safety, reliability, and regulatory readiness for commercial operations.",
   },
 ];
+
+export const leadershipTeam: LeadershipMember[] = [
+  {
+    name: "Henner Niebuhr",
+    role: "Co-Founder & CEO",
+    bio: "Drives the company vision, commercial strategy, and industry partnerships. Led Starcopter from founding through C3 certification and market launch.",
+  },
+  {
+    name: "Lasse Fr\u00F6hner",
+    role: "Co-Founder & CTO",
+    bio: "Leads platform engineering across airframe, PCB design, power distribution, and battery systems. Architect of the HIGHDRA\u2019s in-house technology stack.",
+  },
+  {
+    name: "Khashayar Kazemi",
+    role: "COO",
+    bio: "Oversees operations, manufacturing, and strategic growth. Manages the scaling of production and service delivery from Braunschweig.",
+  },
+];
+
+export const partnerLogos: Partner[] = [
+  { name: "Auterion", category: "technology" },
+  { name: "PhaseOne", category: "sensor" },
+  { name: "CHCNAV", category: "sensor" },
+  { name: "Workswell", category: "sensor" },
+  { name: "EASA", category: "certification" },
+  { name: "BraWo Capital", category: "investor" },
+];
+
+export const rentalProcess: ProcessStep[] = [
+  {
+    step: 1,
+    title: "Get In Touch",
+    description:
+      "Tell us about your project requirements, timeline, and the sensor capabilities you need.",
+  },
+  {
+    step: 2,
+    title: "Quick Onboarding",
+    description:
+      "We verify your operator credentials and insurance, then configure the HIGHDRA with the right payload for your mission.",
+  },
+  {
+    step: 3,
+    title: "Delivery In 3 Days",
+    description:
+      "The complete system arrives in a compact transport case \u2014 organized, accessible, and ready to fly.",
+  },
+  {
+    step: 4,
+    title: "Fly And Deliver",
+    description:
+      "Deploy in under five minutes with tool-free assembly. Capture your data, complete the project, return the system.",
+  },
+];
+
+export const rentalRequirements = [
+  "Registered company with a valid operator ID",
+  "Liability insurance for drone operations",
+  "At least one pilot with a valid remote pilot certificate",
+  "Minimum rental period of one month",
+];
+
+export const sensorPartners: SensorPartner[] = [
+  {
+    name: "PhaseOne",
+    type: "RGB",
+    highlight: "150 MP with mechanical shutter and RTK geotagging for survey-grade orthomosaics",
+  },
+  {
+    name: "CHCNAV",
+    type: "LiDAR",
+    highlight: "Dense point cloud capture for terrain modeling, vegetation analysis, and construction monitoring",
+  },
+  {
+    name: "Workswell",
+    type: "Thermal",
+    highlight: "Radiometric infrared imaging for energy audits, infrastructure inspection, and anomaly detection",
+  },
+];
+
+export const companyStats: CompanyStat[] = [
+  { value: "2017", label: "Founded" },
+  { value: "11+", label: "Engineers" },
+  { value: "2", label: "Locations" },
+  { value: "1st", label: "C3 Multirotor in Germany" },
+];
+
+export const technologyDetails = {
+  airframe: {
+    title: "In-House Airframe Engineering",
+    points: [
+      "Hexacopter with six redundant drive units for fail-safe operation",
+      "Carbon-reinforced central frame with modular arms and legs",
+      "In-house PCB design and power distribution architecture",
+      "Tool-free assembly and disassembly in under five minutes",
+      "Compact transport case fits in a small car trunk",
+    ],
+  },
+  sensors: {
+    title: "Sensor Ecosystem",
+    points: [
+      "PhaseOne 150 MP RGB with mechanical shutter",
+      "CHCNAV LiDAR for production-grade point clouds",
+      "Workswell radiometric thermal cameras",
+      "Multi- and hyperspectral sensor compatibility",
+      "Open payload interfaces for custom integrations",
+    ],
+  },
+  certification: {
+    title: "Certification And Compliance",
+    points: [
+      "EASA designation PR-371",
+      "C3-certified under EU open category regulations",
+      "Germany\u2019s first C3-certified multirotor unmanned aircraft",
+      "Full compliance via Auterion\u2019s standardized open software stack",
+      "Documentation and traceability for regulated operations",
+    ],
+  },
+};
 
 export const footerLinks = {
   company: navItems,
